@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import Error from "./_error";
 
 const about = (props) => {
   //   useEffect(() => {
@@ -10,6 +11,11 @@ const about = (props) => {
   //       });
   //   }, []);
   const { avatar_url, name, bio, html_url } = props.user;
+
+  if (props.error) {
+    return <Error apiError={props.error} />;
+  }
+
   return (
     <Layout title="Hi, I am react developer">
       <h3>{name}</h3>
@@ -27,7 +33,9 @@ const about = (props) => {
 about.getInitialProps = async () => {
   const response = await fetch("https://api.github.com/users/MohJaber93");
   const user = await response.json();
-  return { user: user };
+  const error = response.status > 200 ? response.status : false;
+  console.log(user, response, error);
+  return { user: user, error };
 };
 
 export default about;
