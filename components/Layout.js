@@ -2,7 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import NProgress from "nprogress";
-import s from "next";
+import Router from "next/router";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 const Layout = ({ children, title }) => {
   return (
@@ -67,7 +71,7 @@ const Layout = ({ children, title }) => {
           padding: 1em;
         }
       `}</style>
-      <style global>{`
+      <style jsx global>{`
         body {
           margin: 0;
           padding: 0;
