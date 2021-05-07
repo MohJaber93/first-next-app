@@ -24,6 +24,9 @@ const Layout = ({ children, title }) => {
         <Link href="/hireme">
           <a>Hire Me</a>
         </Link>
+        <Link href="/blog">
+          <a>Blog</a>
+        </Link>
       </header>
       <main className="main-content">
         <h1>{title}</h1>
