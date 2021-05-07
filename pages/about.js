@@ -2,14 +2,6 @@ import Layout from "../components/Layout";
 import Error from "./_error";
 
 const about = (props) => {
-  //   useEffect(() => {
-  //fetch data on client side works as usual
-  //     fetch("https://api.github.com/users/MohJaber93")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log("data", data);
-  //       });
-  //   }, []);
   const { avatar_url, name, bio, html_url } = props.user;
 
   if (props.error) {
