@@ -1,19 +1,15 @@
-import Link from "next/link";
+import Layout from "../components/Layout";
 
 const about = () => {
   return (
-    <div>
-      <div>
-        <Link href="/">go to home</Link>
-      </div>
-      <p>Hi, I am react developer</p>
+    <Layout title="Hi, I am react developer">
       <img
         alt="react-logo"
         src="/static/react-logo.png"
         height="80%"
         width="100%"
       />
-    </div>
+    </Layout>
   );
 };
 
