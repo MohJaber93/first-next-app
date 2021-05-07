@@ -1,7 +1,9 @@
-import { withRouter } from "next/router";
+import { withRouter, useRouter } from "next/router";
 import Layout from "../../components/Layout";
 
-const post = ({ router }) => {
+// const post = ({ router }) => {
+const post = () => {
+  const router = useRouter();
   // props.url
   // because url is deprecated we want another way
   console.log(router);
@@ -18,4 +20,5 @@ const post = ({ router }) => {
   );
 };
 
-export default withRouter(post);
+// export default withRouter(post);
+export default post;
