@@ -1,16 +1,33 @@
 import Layout from "../components/Layout";
 
-const about = () => {
+const about = (props) => {
+  //   useEffect(() => {
+  //fetch data on client side works as usual
+  //     fetch("https://api.github.com/users/MohJaber93")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log("data", data);
+  //       });
+  //   }, []);
+  const { avatar_url, name, bio, html_url } = props.user;
   return (
     <Layout title="Hi, I am react developer">
-      <img
-        alt="react-logo"
-        src="/static/react-logo.png"
-        height="80%"
-        width="100%"
-      />
+      <h3>{name}</h3>
+      <p>{bio}</p>
+      <a href={html_url} target="_blank">
+        My Github
+      </a>
+      <img alt="my-pic" src={avatar_url} height="80%" width="100%" />
     </Layout>
   );
+};
+
+// OLD WAY
+// this way to fetch data from the server then the page will rendered with the response in it's props
+about.getInitialProps = async () => {
+  const response = await fetch("https://api.github.com/users/MohJaber93");
+  const user = await response.json();
+  return { user: user };
 };
 
 export default about;
