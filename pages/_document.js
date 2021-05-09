@@ -23,8 +23,8 @@ class MyDocument extends Document {
           <NextScript />
           <style global jsx>{`
             body {
-              margin: 0;
-              padding: 0;
+              margin: 0 !important;
+              padding: 0 !important;
               box-sizing: border-box;
               font-family: "Itim", cursive;
             }
