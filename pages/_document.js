@@ -21,7 +21,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style global jsx>{`
+          <style global>{`
             body {
               margin: 0 !important;
               padding: 0 !important;
